@@ -34,3 +34,13 @@ Foo
  │   └── main.cpp
  └── test
 ```
+
+## Importing libraries
+External libraries such as `iostream` should be imported
+using `<>` brackets. For internal libraries, use quotation mark
+`""`, like so
+
+```cpp
+#include <iostream> // External package
+#include "path/to/my/module.hpp" // External package
+```
