@@ -11,17 +11,13 @@ int main() {
   std::list<int> l = {1, 2, 3, 4, 5, 6};
   std::vector<int> v = {7, 8, 9, 10, 11, 12};
 
-  std::cout << "[ ";
-  for (int element : l) {
-    std::cout << element << " ";
-  }
-  std::cout << "]" << std::endl;
+  // Test prints.
+  print_list(&l);
+  print_vector(&v);
 
-  std::cout << "[ ";
-  for (int element : v) {
-    std::cout << element << " ";
-  }
-  std::cout << "]" << std::endl;
-
+  // Test binary search.
+  bool found;
+  found = binary_search(&v, 22);
+  std::cout << found << std::endl;
   return 0;
 }
