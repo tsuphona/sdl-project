@@ -20,3 +20,7 @@ jobs:
       - name: Build the project
         shell: bash
         run: cd build && ninja
+
+      - name: Test the project
+        shell: bash
+        run: ctest --test-dir build
