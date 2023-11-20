@@ -18,6 +18,5 @@ jobs:
           cxx-compiler: g++
 
       - name: Build the project
-        uses: threeal/cmake-action@v1.3.0
-        with:
-            run-build: True
+        shell: bash
+        run: cd build && ninja
