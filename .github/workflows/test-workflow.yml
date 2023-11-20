@@ -1,0 +1,16 @@
+name: Build
+on:
+  push:
+jobs:
+  build-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Configure the project
+        uses: threeal/cmake-action@v1.3.0
+
+      - name: Display the path
+        shell: bash
+        run: echo $PATH
