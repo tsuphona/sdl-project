@@ -16,3 +16,8 @@ jobs:
           generator: Ninja
           c-compiler: gcc
           cxx-compiler: g++
+
+      - name: Build the project
+        uses: threeal/cmake-actions@v1.3.0
+        with:
+            run-build: True
