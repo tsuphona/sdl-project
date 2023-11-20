@@ -11,8 +11,8 @@ jobs:
       - name: Configure the project
         uses: threeal/cmake-action@v1.3.0
         with:
-          source-dir: submodules
-          build-dir: submodules/out
+          source-dir: .
+          build-dir: build
           generator: Ninja
           c-compiler: gcc
           cxx-compiler: g++
