@@ -10,7 +10,9 @@ jobs:
 
       - name: Configure the project
         uses: threeal/cmake-action@v1.3.0
-
-      - name: Display the path
-        shell: bash
-        run: echo $PATH
+        with:
+          source-dir: submodules
+          build-dir: submodules/out
+          generator: Ninja
+          c-compiler: gcc
+          cxx-compiler: g++
