@@ -8,7 +8,6 @@ int module_1() {
 }
 
 int print_list(const std::list<int> *lst_ptr) {
-
   std::list<int> lst;
   lst = *lst_ptr;
 
@@ -22,7 +21,6 @@ int print_list(const std::list<int> *lst_ptr) {
 }
 
 int print_vector(const std::vector<int> *vec_ptr) {
-
   std::vector<int> vec;
   vec = *vec_ptr;
 
@@ -36,14 +34,12 @@ int print_vector(const std::vector<int> *vec_ptr) {
 }
 
 bool binary_search(const std::vector<int> *vec_ptr, int num) {
-
   int size = vec_ptr->size();
   int left_ind = 0;
   int right_ind = size - 1;
   int mid_ind;
 
   while (left_ind <= right_ind) {
-
     mid_ind = left_ind + (right_ind - left_ind) / 2;
 
     if (vec_ptr->at(mid_ind) == num) {

@@ -1,8 +1,10 @@
-#include "module_1.hpp"
-#include "module_2.hpp"
 #include <SDL2/SDL.h>
+
 #include <list>
 #include <vector>
+
+#include "module_1.hpp"
+#include "module_2.hpp"
 
 int main() {
   module_1();
@@ -38,7 +40,6 @@ int main() {
 
   // Main loop.
   while (true) {
-
     // Events.
     while (SDL_PollEvent(&event)) {
       // Handle closing the window.

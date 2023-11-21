@@ -1,6 +1,8 @@
-#include "../include/module_1.hpp"
 #include <gtest/gtest.h>
+
 #include <vector>
+
+#include "module_1.hpp"
 
 TEST(Module1Test, BinarySearch) {
   std::vector<int> vec = {1, 2, 3};
