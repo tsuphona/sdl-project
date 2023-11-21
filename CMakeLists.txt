@@ -12,6 +12,7 @@ set(CMAKE_CXX_STANDRAD_REQUIRED)
 add_subdirectory(modules/module_1)
 add_subdirectory(modules/module_2)
 add_subdirectory(modules/connect_the_dots)
+add_subdirectory(modules/random_walk)
 
 # SDL stuff.
 find_package(SDL2 REQUIRED)

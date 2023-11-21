@@ -58,9 +58,6 @@ int main(int argc, char *argv[]) {
     SDL_RenderClear(renderer);
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
-    // SDL_RenderDrawLines(renderer, vector_of_points.data(),
-    //                     vector_of_points.size());
-
     if (type == 0) {
       for (auto point : vector_of_points) {
         for (auto point2 : vector_of_points) {
