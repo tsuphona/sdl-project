@@ -21,7 +21,7 @@ int main() {
   found = binary_search(&v, 22);
   std::cout << found << std::endl;
 
-  // SDL2 project.
+  // SDL2 project name connect the dots.
   // SDL Init stuff.
   SDL_Init(SDL_INIT_EVERYTHING);
   SDL_Window *window = nullptr;
@@ -32,6 +32,9 @@ int main() {
   // A single point to update every frame.
   SDL_Point current;
   std::vector<SDL_Point> vector_of_points;
+
+  // The type of connection we want.
+  int type = 0;
 
   // Main loop.
   while (true) {
@@ -60,13 +63,35 @@ int main() {
       if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_c) {
         vector_of_points.clear();
       }
+      // If key m is clicked, all previous points connect to new point.
+      if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_m) {
+        type = 0;
+      }
+      // If key m is clicked, last point connect to new point.
+      if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_l) {
+        type = 1;
+      }
     }
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    SDL_RenderDrawLines(renderer, vector_of_points.data(),
-                        vector_of_points.size());
+
+    // SDL_RenderDrawLines(renderer, vector_of_points.data(),
+    //                     vector_of_points.size());
+
+    if (type == 0) {
+      for (auto point : vector_of_points) {
+        for (auto point2 : vector_of_points) {
+          SDL_RenderDrawLine(renderer, point.x, point.y, point2.x, point2.y);
+        }
+      }
+    }
+    if (type == 1) {
+      SDL_RenderDrawLines(renderer, vector_of_points.data(),
+                          vector_of_points.size());
+    }
+    // Present the drawing.
     SDL_RenderPresent(renderer);
     SDL_Delay(150);
   }
