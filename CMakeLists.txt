@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.27)
 
 # Specify project name.
-project(cpp-template)
+project(cpp-template VERSION 1.0.0)
 
 # Specify C++ standard.
 set(CMAKE_CXX_STANDARD 20)
@@ -13,6 +13,7 @@ add_subdirectory(modules/module_1)
 add_subdirectory(modules/module_2)
 add_subdirectory(modules/connect_the_dots)
 add_subdirectory(modules/random_walk)
+add_subdirectory(modules/mandelbrot)
 
 # SDL stuff.
 find_package(SDL2 REQUIRED)
