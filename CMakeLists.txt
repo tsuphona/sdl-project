@@ -1,5 +1,5 @@
 # Specify the minimun version for Cmake.
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.26)
 
 # Specify project name.
 project(cpp-template VERSION 1.0.0)
