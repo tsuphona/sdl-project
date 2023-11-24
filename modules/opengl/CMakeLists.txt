@@ -1,3 +1,3 @@
-add_executable(main src/main.cpp)
+add_executable(opengl src/opengl.cpp)
 
-target_link_libraries(main glfw)
+target_link_libraries(opengl glfw)
