@@ -8,6 +8,10 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        shell: bash
+        run: sudo apt install xorg-dev
+
       - name: Configure the project
         uses: threeal/cmake-action@v1.3.0
         with:
