@@ -10,7 +10,9 @@ jobs:
 
       - name: Install dependencies
         shell: bash
-        run: sudo apt install xorg-dev
+        run: |
+          sudo apt install xorg-dev
+          sudo apt install mesa-utils
 
       - name: Configure the project
         uses: threeal/cmake-action@v1.3.0
