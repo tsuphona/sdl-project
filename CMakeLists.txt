@@ -16,10 +16,6 @@ add_subdirectory(modules/random_walk)
 add_subdirectory(modules/mandelbrot)
 add_subdirectory(modules/opengl)
 
-# SDL stuff. find_package(SDL2 REQUIRED)
-
-#
-
 # ---------- Google test stuff ----------
 include(FetchContent)
 
@@ -55,10 +51,17 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(SDL2)
 
-include_directories(modules/module_1/include/ modules/module_2/include/)
+# ---------- GLAD stuff ----------
+# Add the GLAD source file
+add_library(glad external/glad/src/glad.c)
+
+# Include the GLAD header file
+target_include_directories(glad PUBLIC external/glad/include)
 
 # --------- Main stuff ----------
 # Add an executable.
+include_directories(modules/module_1/include/ modules/module_2/include/)
+
 add_executable(cpp-template main.cpp)
 
 # Link the executable with the libraries (modules)
