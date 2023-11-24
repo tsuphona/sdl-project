@@ -14,19 +14,13 @@ add_subdirectory(modules/module_2)
 add_subdirectory(modules/connect_the_dots)
 add_subdirectory(modules/random_walk)
 add_subdirectory(modules/mandelbrot)
+add_subdirectory(modules/opengl)
 
-# SDL stuff.
-find_package(SDL2 REQUIRED)
-include_directories(modules/module_1/include/ modules/module_2/include/
-                    ${SDL2_INCLUDE_DIRS})
+# SDL stuff. find_package(SDL2 REQUIRED)
 
-# Add an executable.
-add_executable(cpp-template main.cpp)
+#
 
-# Link the executable with the libraries (modules)
-target_link_libraries(cpp-template module_1 module_2 ${SDL2_LIBRARIES})
-
-# Include FetchContent for Google Test
+# ---------- Google test stuff ----------
 include(FetchContent)
 
 FetchContent_Declare(
@@ -42,5 +36,32 @@ set(gtest_force_shared_crt
     CACHE BOOL "" FORCE)
 
 FetchContent_MakeAvailable(googletest)
+
+# ---------- GLFW stuff ----------
+FetchContent_Declare(
+  glfw
+  GIT_REPOSITORY https://github.com/glfw/glfw.git
+  GIT_TAG 7482de6071d21db77a7236155da44c172a7f6c9e # Release 3.3.8
+  DOWNLOAD_EXTRACT_TIMESTAMP TRUE)
+
+FetchContent_MakeAvailable(glfw)
+
+# ---------- SDL2 stuff ----------
+FetchContent_Declare(
+  SDL2
+  GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
+  GIT_TAG 15ead9a40d09a1eb9972215cceac2bf29c9b77f6 # Release 2.28.5
+  DOWNLOAD_EXTRACT_TIMESTAMP TRUE)
+
+FetchContent_MakeAvailable(SDL2)
+
+include_directories(modules/module_1/include/ modules/module_2/include/)
+
+# --------- Main stuff ----------
+# Add an executable.
+add_executable(cpp-template main.cpp)
+
+# Link the executable with the libraries (modules)
+target_link_libraries(cpp-template module_1 module_2)
 
 enable_testing()
