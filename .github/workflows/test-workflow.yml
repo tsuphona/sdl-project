@@ -5,16 +5,10 @@ jobs:
   build-project:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install dependencies
-        shell: bash
-        run: |
-          sudo apt install xorg-dev
-          sudo apt install mesa-utils
-
-      - name: Configure the project
+      - name: Configure
         uses: threeal/cmake-action@v1.3.0
         with:
           source-dir: .
@@ -23,10 +17,10 @@ jobs:
           c-compiler: gcc
           cxx-compiler: g++
 
-      - name: Build the project
+      - name: Build
         shell: bash
         run: cd build && ninja
 
-      - name: Test the project
+      - name: Test
         shell: bash
         run: ctest --test-dir build

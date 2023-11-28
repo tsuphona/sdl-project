@@ -1,3 +1,4 @@
-# cpp-template
+# sdl-project
 
-Template for creating cpp projects.
+Simple project with goal to create digital art
+using the library SDL.
