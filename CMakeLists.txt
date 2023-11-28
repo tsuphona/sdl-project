@@ -2,13 +2,13 @@
 cmake_minimum_required(VERSION 3.26)
 
 # Specify project name.
-project(sdldemo VERSION 1.0.0)
+project(sdldemo VERSION 0.0.1)
 
 # Specify C++ standard.
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDRAD_REQUIRED)
 
-# Add modules.
+# Add subdirectories.
 add_subdirectory(modules/connect_the_dots)
 add_subdirectory(modules/random_walk)
 add_subdirectory(modules/mandelbrot)
@@ -39,9 +39,12 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(SDL2)
 
-# ---------- Main stuff ----------
+# ---------- Main and TCLAP stuff ----------
 add_executable(sdldemo main.cpp)
 enable_testing()
+target_include_directories(
+  sdldemo
+  PRIVATE external/tclap/include
+  PRIVATE modules/connect_the_dots/include)
 
-# ---------- TCLAP stuff ----------
-target_include_directories(sdldemo PRIVATE external/tclap/include)
+target_link_libraries(sdldemo PRIVATE connect_the_dots)

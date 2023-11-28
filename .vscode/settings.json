@@ -67,6 +67,7 @@
     "thread": "cpp",
     "cinttypes": "cpp",
     "variant": "cpp",
-    "complex": "cpp"
+    "complex": "cpp",
+    "strstream": "cpp"
   }
 }

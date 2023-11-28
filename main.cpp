@@ -3,42 +3,30 @@
 #include <iostream>
 #include <string>
 
+#include "connect_the_dots.hpp"
+
 int main(int argc, char** argv) {
   try {
     // Define the command line object.
-    TCLAP::CmdLine cmd("Test simple command line parsing", ' ', "0.0.1");
+    TCLAP::CmdLine cmd("Run selected modules", ' ', "0.0.1");
 
     // Define a value argument and add it to command line.
-    TCLAP::ValueArg<std::string> nameArg("n", "name", "Name to print", true, "",
-                                         "string");
-    cmd.add(nameArg);
-
-    // Define a switch and add it to the command line.
-    TCLAP::SwitchArg reverseSwitch("r", "reverse", "Print name in reverse", cmd,
-                                   false);
-
-    // Define an optional value argument and add it to the command line.
-    TCLAP::ValueArg<int> ageArg("a", "age", "Age of the person", false, 0,
-                                "int");
-    cmd.add(ageArg);
+    TCLAP::ValueArg<int> moduleArg("m", "module", "Module to run", true, 0,
+                                   "int");
+    cmd.add(moduleArg);
 
     // Parse the command line arguments.
     cmd.parse(argc, argv);
 
     // Get the value parsed by each argument.
-    std::string name = nameArg.getValue();
-    bool reverse = reverseSwitch.getValue();
-    int age = ageArg.getValue();
+    int module = moduleArg.getValue();
 
-    // Do reverse
-    if (reverse) {
-      std::reverse(name.begin(), name.end());
-    }
-
-    // Print out
-    std::cout << "Name: " << name << std::endl;
-    if (age > 0) {
-      std::cout << "Age: " << age << std::endl;
+    // Run modules.
+    switch (module) {
+      case 0:
+        std::cout << "Running module: connect_the_dots" << module << std::endl;
+        connect_the_dots();
+        break;
     }
 
   } catch (TCLAP::ArgException& e) {
@@ -46,5 +34,6 @@ int main(int argc, char** argv) {
               << std::endl;
     return 1;
   }
+  connect_the_dots();
   return 0;
 }

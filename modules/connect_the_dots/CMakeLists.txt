@@ -1,5 +1,5 @@
-# Add application executable
-add_executable(connect_the_dots src/connect_the_dots.cpp)
+add_library(connect_the_dots src/connect_the_dots.cpp)
 
-# Link the executable with SDL2 module's library
-target_link_libraries(connect_the_dots SDL2::SDL2)
+target_include_directories(connect_the_dots PRIVATE include)
+
+target_link_libraries(connect_the_dots PRIVATE SDL2::SDL2)

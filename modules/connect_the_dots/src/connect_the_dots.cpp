@@ -2,13 +2,13 @@
 
 #include <vector>
 
-int main(int argc, char *argv[]) {
+void connect_the_dots() {
   // SDL2 project name connect the dots.
   // SDL Init stuff.
   SDL_Init(SDL_INIT_EVERYTHING);
   SDL_Window *window = nullptr;
   SDL_Renderer *renderer = nullptr;
-  SDL_CreateWindowAndRenderer(2000, 2000, 0, &window, &renderer);
+  SDL_CreateWindowAndRenderer(800, 600, 0, &window, &renderer);
   SDL_Event event;
 
   // A single point to update every frame.
@@ -73,5 +73,4 @@ int main(int argc, char *argv[]) {
     SDL_RenderPresent(renderer);
     SDL_Delay(150);
   }
-  return 0;
 }
