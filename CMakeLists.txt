@@ -45,6 +45,10 @@ enable_testing()
 target_include_directories(
   sdldemo
   PRIVATE external/tclap/include
-  PRIVATE modules/connect_the_dots/include)
+  PRIVATE modules/connect_the_dots/include
+  PRIVATE modules/mandelbrot/include)
 
-target_link_libraries(sdldemo PRIVATE connect_the_dots)
+target_link_libraries(
+  sdldemo
+  PRIVATE connect_the_dots
+  PRIVATE mandelbrot)

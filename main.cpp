@@ -4,6 +4,7 @@
 #include <string>
 
 #include "connect_the_dots.hpp"
+#include "mandelbrot.hpp"
 
 int main(int argc, char** argv) {
   try {
@@ -27,6 +28,10 @@ int main(int argc, char** argv) {
         std::cout << "Running module: connect_the_dots" << module << std::endl;
         connect_the_dots();
         break;
+      case 1:
+        std::cout << "Running module: mandelbrot" << module << std::endl;
+        Mandelbrot();
+        break;
     }
 
   } catch (TCLAP::ArgException& e) {
@@ -34,6 +39,6 @@ int main(int argc, char** argv) {
               << std::endl;
     return 1;
   }
-  connect_the_dots();
+
   return 0;
 }

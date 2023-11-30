@@ -1,5 +1,8 @@
+#include "connect_the_dots.hpp"
+
 #include <SDL2/SDL.h>
 
+#include <string>
 #include <vector>
 
 void connect_the_dots() {
@@ -10,6 +13,10 @@ void connect_the_dots() {
   SDL_Renderer *renderer = nullptr;
   SDL_CreateWindowAndRenderer(800, 600, 0, &window, &renderer);
   SDL_Event event;
+
+  // Set window title.
+  std::string window_title = "Connect the dots";
+  SDL_SetWindowTitle(window, window_title.c_str());
 
   // A single point to update every frame.
   SDL_Point current;
