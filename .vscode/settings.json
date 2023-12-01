@@ -69,5 +69,10 @@
     "variant": "cpp",
     "complex": "cpp",
     "strstream": "cpp"
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#4D2012",
+    "titleBar.activeBackground": "#6B2D19",
+    "titleBar.activeForeground": "#FDF9F7"
   }
 }
